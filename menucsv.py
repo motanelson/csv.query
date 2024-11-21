@@ -103,8 +103,10 @@ class QueryApp:
                                 if r==0:
                                    
                                     fl=fl+rr
+                                    
                                 else:
-                                    fl=fl+","+rr   
+                                    fl=fl+","+rr
+                            print(fl)
                             results.append(fl)
                     except Exception as e:
                          pass
@@ -114,8 +116,8 @@ class QueryApp:
                 else:
                     # Exibir os resultados na caixa de texto
                     self.result_text.delete(1.0, tk.END)
-                    for result in results:
-                        self.result_text.insert(tk.END, ", ".join(result) + "\n")
+                    result="\n".join(results)
+                    self.result_text.insert(tk.END, result)
 
         except Exception as e:
             messagebox.showerror("Error", f"Failed to execute query: {e}")
